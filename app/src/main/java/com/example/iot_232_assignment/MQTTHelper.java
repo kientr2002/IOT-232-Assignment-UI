@@ -17,6 +17,7 @@ import org.eclipse.paho.client.mqttv3.MqttMessage;
 
 public class MQTTHelper {
     public MqttAndroidClient mqttAndroidClient;
+    public boolean connectResult = true;
 
     public final String[] arrayTopics = {"kientranvictory/feeds/sensor1", "kientranvictory/feeds/sensor2", "kientranvictory/feeds/button1", "kientranvictory/feeds/button2"};
 
@@ -24,7 +25,17 @@ public class MQTTHelper {
     final String username = "kientranvictory";
     final String password = ""; //them vao ada va luon luon xoa truoc khi push github
 
+
     final String serverUri = "tcp://io.adafruit.com:1883";
+    public interface ConnectionListener {
+        void onConnectionResult(boolean success);
+    }
+
+    private ConnectionListener connectionListener;
+
+    public void setConnectionListener(ConnectionListener listener) {
+        this.connectionListener = listener;
+    }
 
     public MQTTHelper(Context context){
         mqttAndroidClient = new MqttAndroidClient(context, serverUri, clientId);
@@ -81,6 +92,15 @@ public class MQTTHelper {
                 @Override
                 public void onFailure(IMqttToken asyncActionToken, Throwable exception) {
                     Log.w("Mqtt", "Failed to connect to: " + serverUri + exception.toString());
+                    connectResult = false;
+                    if (connectResult) {
+                        Log.w("Mqtt", "ok");
+                    } else {
+                        Log.w("Mqtt", "not ok");
+                        if (connectionListener != null) {
+                            connectionListener.onConnectionResult(false);
+                        }
+                    }
                 }
             });
 

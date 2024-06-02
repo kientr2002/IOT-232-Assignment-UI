@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import com.github.angads25.toggle.interfaces.OnToggledListener;
 import com.github.angads25.toggle.model.ToggleableView;
 import com.github.angads25.toggle.widget.LabeledSwitch;
@@ -13,10 +15,11 @@ import org.eclipse.paho.client.mqttv3.MqttException;
 import org.eclipse.paho.client.mqttv3.MqttMessage;
 import java.nio.charset.Charset;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements MQTTHelper.ConnectionListener{
     MQTTHelper mqttHelper;
     TextView txtTemp, txtHumi, txtWifiInfo;
     LabeledSwitch btnLED, btnPUMP;
+    private static final String TAG = "MainActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,13 +82,16 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void startMQTT() {
+
         mqttHelper = new MQTTHelper(this);
+        mqttHelper.setConnectionListener(this);
         mqttHelper.setCallback(new MqttCallbackExtended() {
             @Override
             public void connectComplete(boolean reconnect, String serverURI) {}
 
             @Override
-            public void connectionLost(Throwable cause) {}
+            public void connectionLost(Throwable cause) {
+            }
 
             @Override
             public void messageArrived(String topic, MqttMessage message) throws Exception {
@@ -112,5 +118,22 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void deliveryComplete(IMqttDeliveryToken token) {}
         });
+    }
+
+    public void onConnectionResult(boolean success) {
+        if (!success) {
+            // Show alert dialog for connection failure
+            runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    new AlertDialog.Builder(MainActivity.this)
+                            .setTitle("Connection Error")
+                            .setMessage("Failed to connect to MQTT broker.")
+                            .setPositiveButton(android.R.string.ok, null)
+                            .setIcon(android.R.drawable.ic_dialog_alert)
+                            .show();
+                }
+            });
+        }
     }
 }
