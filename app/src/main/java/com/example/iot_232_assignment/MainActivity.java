@@ -104,8 +104,15 @@ public class MainActivity extends AppCompatActivity implements MQTTHelper.Connec
                 public void run() {
                     new AlertDialog.Builder(MainActivity.this)
                             .setTitle("Connection Error")
-                            .setMessage("Failed to connect to MQTT broker.")
-                            .setPositiveButton(android.R.string.ok, null)
+                            .setMessage("Failed to connect to MQTT broker. The application will now close.")
+                            .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    // Terminate the application
+                                    finish();
+                                    System.exit(0);
+                                }
+                            })
                             .setIcon(android.R.drawable.ic_dialog_alert)
                             .show();
                 }
