@@ -4,87 +4,164 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_margin="20dp"
     tools:context=".MainActivity"
     android:orientation="vertical">
-
+    <!--Heading 5 -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="10">
+        android:layout_weight="5">
         <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="9"
             android:text = "Welcome Home, Kien!"
+            android:textStyle="bold"
             android:gravity = "center"
             android:textColor = "#ff0000"
-            android:textSize = "30dp"/>
+            android:textSize = "25dp"/>
     </LinearLayout>
-
+    <!--Information 15   -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="40"
-        android:orientation="horizontal">
-        <TextView
-            android:id="@+id/txtTemprature"
+        android:layout_weight="15">
+        <!--        Time API-->
+        <LinearLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="#ff0000"
-            android:text="34°C"
-            android:textSize="50dp"
-            android:textStyle="bold"
-            android:textColor="#ffffff"
-            android:gravity="center"
-            android:layout_margin="20dp"
-            />
-        <TextView
-            android:id="@+id/txtHumidity"
+            android:layout_weight="50">
+
+        </LinearLayout>
+        <!--        Weather API-->
+        <LinearLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="#0000ff"
-            android:text="90%"
-            android:textSize="50dp"
-            android:textStyle="bold"
-            android:textColor="#ffffff"
-            android:gravity="center"
-            android:layout_margin="20dp"
-            />
+            android:layout_weight="50">
+
+        </LinearLayout>
     </LinearLayout>
 
-    <com.github.angads25.toggle.widget.LabeledSwitch
-        android:id="@+id/btnLED"
+    <!--Dashboard   55 -->
+    <!--    Title 5-->
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="20"
-        android:layout_margin="16dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:textSize="30dp"
-        app:textOn="BẬT"
-        app:textOff="TẮT"
-        app:on="false"
-        app:colorBorder="#FF4081"/>
+        android:layout_weight="5">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="9"
+            android:text = "Dashboard"
+            android:gravity = "left"
+            android:textColor = "#ff0000"
+            android:textSize = "21dp"
+            />
+    </LinearLayout>
+    <!--    Dashboard Information 15-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="15"
+        android:orientation="horizontal">
+        <!--        Soil Hudmidity API-->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="50">
 
-    <com.github.angads25.toggle.widget.LabeledSwitch
-        android:id="@+id/btnPUMP"
+        </LinearLayout>
+        <!--        Watering number API-->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="50">
+
+        </LinearLayout>
+    </LinearLayout>
+    <!--Dashboard Histort 35-->
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="20"
-        android:layout_margin="16dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:textSize="30dp"
-        app:textOn="BẬT"
-        app:textOff="TẮT"
-        app:on="false"
-        app:colorBorder="#ffff00"/>
+        android:layout_weight="30"
+        android:orientation="horizontal">
+        <!--        Park number-->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="30">
+
+        </LinearLayout>
+        <!--        Park number History-->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="70">
+
+        </LinearLayout>
+    </LinearLayout>
+    <!--Controller Dashoard 15-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="15">
+        <!--        Pump Button -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_weight="50">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="20"
+                android:text = "PUMP"
+                android:textStyle="bold"
+                android:gravity = "center"
+                android:textColor = "#ff0000"
+                android:textSize = "12dp"/>
+            <com.github.angads25.toggle.widget.LabeledSwitch
+                android:id="@+id/btnPUMP"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="80"
+                android:layout_margin="16dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:textSize="30dp"
+                app:textOn="ON"
+                app:textOff="OFF"
+                app:on="false"
+                app:colorBorder="#ffff00"/>
+        </LinearLayout>
+        <!--        Pump History-->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="50"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="20"
+                android:text = "Watering History"
+                android:textStyle="bold"
+                android:gravity = "center"
+                android:textColor = "#ff0000"
+                android:textSize = "12dp"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="80">
+
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+
 
     <LinearLayout
         android:layout_width="match_parent"

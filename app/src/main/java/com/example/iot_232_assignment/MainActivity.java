@@ -18,7 +18,7 @@ import java.nio.charset.Charset;
 public class MainActivity extends AppCompatActivity implements MQTTHelper.ConnectionListener{
     MQTTHelper mqttHelper;
     TextView txtTemp, txtHumi, txtWifiInfo;
-    LabeledSwitch btnLED, btnPUMP;
+    LabeledSwitch btnPUMP;
     private static final String TAG = "MainActivity";
 
     @Override
@@ -26,10 +26,6 @@ public class MainActivity extends AppCompatActivity implements MQTTHelper.Connec
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        txtTemp = findViewById(R.id.txtTemprature);
-        txtHumi = findViewById(R.id.txtHumidity);
-
-        btnLED = findViewById(R.id.btnLED);
         btnPUMP = findViewById(R.id.btnPUMP);
 
         boolean isWifiConnected = getIntent().getBooleanExtra("WIFI_CONNECTED", false);
@@ -40,16 +36,6 @@ public class MainActivity extends AppCompatActivity implements MQTTHelper.Connec
             // Do something if WiFi is not connected
         }
 
-        btnLED.setOnToggledListener(new OnToggledListener() {
-            @Override
-            public void onSwitched(ToggleableView toggleableView, boolean isOn) {
-                if(isOn) {
-                    sendDataMQTT("kientranvictory/feeds/button1", "1");
-                } else {
-                    sendDataMQTT("kientranvictory/feeds/button1", "0");
-                }
-            }
-        });
 
         btnPUMP.setOnToggledListener(new OnToggledListener() {
             @Override
@@ -96,17 +82,7 @@ public class MainActivity extends AppCompatActivity implements MQTTHelper.Connec
             @Override
             public void messageArrived(String topic, MqttMessage message) throws Exception {
                 Log.d("Test", topic + "===" + message.toString());
-                if(topic.contains("sensor1")) {
-                    txtTemp.setText(message.toString() + "°C");
-                } else if(topic.contains("sensor2")) {
-                    txtHumi.setText(message.toString() + "%");
-                } else if(topic.contains("button1")) {
-                    if(message.toString().equals("1")) {
-                        btnLED.setOn(true);
-                    } else if (message.toString().equals("0")) {
-                        btnLED.setOn(false);
-                    }
-                } else if(topic.contains("button2")) {
+                 if(topic.contains("button2")) {
                     if(message.toString().equals("1")) {
                         btnPUMP.setOn(true);
                     } else if (message.toString().equals("0")) {

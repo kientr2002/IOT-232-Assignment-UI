@@ -42,4 +42,5 @@ dependencies {
     implementation 'com.github.angads25:toggle:1.1.0'
 
     implementation "androidx.slidingpanelayout:slidingpanelayout:1.2.0"
+
 }
