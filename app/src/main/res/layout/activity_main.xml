@@ -54,6 +54,7 @@
             android:layout_height="match_parent"
             android:layout_weight="9"
             android:text = "Dashboard"
+            android:textStyle = "bold"
             android:gravity = "left"
             android:textColor = "#ff0000"
             android:textSize = "21dp"
@@ -69,15 +70,141 @@
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="50">
-
+            android:layout_weight="50"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="25"
+                android:text = "Hudimity Soil Value"
+                android:textStyle="bold"
+                android:gravity = "center"
+                android:textColor = "#ff0000"
+                android:textSize = "12dp"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="25">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height= "match_parent"
+                    android:layout_weight = "70"
+                    android:text = "Area 1"
+                    android:textStyle="bold"
+                    android:gravity = "center"/>
+                <TextView
+                    android:id="@+id/sensor1"
+                    android:layout_width="0dp"
+                    android:layout_height= "match_parent"
+                    android:layout_weight = "30"
+                    android:text = "60%"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="25">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height= "match_parent"
+                    android:layout_weight = "70"
+                    android:text = "Area 2"
+                    android:textStyle="bold"
+                    android:gravity = "center"/>
+                <TextView
+                    android:id="@+id/sensor2"
+                    android:layout_width="0dp"
+                    android:layout_height= "match_parent"
+                    android:layout_weight = "30"
+                    android:text = "60%"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="25">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height= "match_parent"
+                    android:layout_weight = "70"
+                    android:text = "Area 3"
+                    android:textStyle="bold"
+                    android:gravity = "center"/>
+                <TextView
+                    android:id="@+id/sensor3"
+                    android:layout_width="0dp"
+                    android:layout_height= "match_parent"
+                    android:layout_weight = "30"
+                    android:text = "60%"/>
+            </LinearLayout>
         </LinearLayout>
         <!--        Watering number API-->
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="50">
-
+            android:layout_weight="50"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="25"
+                android:text = "Watering Schedule"
+                android:textStyle="bold"
+                android:gravity = "center"
+                android:textColor = "#ff0000"
+                android:textSize = "12dp"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="25">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height= "match_parent"
+                    android:layout_weight = "70"
+                    android:text = "8:00 AM"
+                    android:textStyle="bold"
+                    android:gravity = "center"/>
+                <TextView
+                    android:id="@+id/sensor1"
+                    android:layout_width="0dp"
+                    android:layout_height= "match_parent"
+                    android:layout_weight = "30"
+                    android:text = "OK"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="25">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height= "match_parent"
+                    android:layout_weight = "70"
+                    android:text = "10:00 AM"
+                    android:textStyle="bold"
+                    android:gravity = "center"/>
+                <TextView
+                    android:id="@+id/sensor2"
+                    android:layout_width="0dp"
+                    android:layout_height= "match_parent"
+                    android:layout_weight = "30"
+                    android:text = ""/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="25">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height= "match_parent"
+                    android:layout_weight = "70"
+                    android:text = "6:00 PM"
+                    android:textStyle="bold"
+                    android:gravity = "center"/>
+                <TextView
+                    android:id="@+id/sensor3"
+                    android:layout_width="0dp"
+                    android:layout_height= "match_parent"
+                    android:layout_weight = "30"
+                    android:text = ""/>
+            </LinearLayout>
         </LinearLayout>
     </LinearLayout>
     <!--Dashboard Histort 35-->
@@ -137,7 +264,7 @@
                 app:on="false"
                 app:colorBorder="#ffff00"/>
         </LinearLayout>
-        <!--        Pump History-->
+        <!--        LED Button-->
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -147,26 +274,58 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="20"
-                android:text = "Watering History"
+                android:text = "LED"
                 android:textStyle="bold"
                 android:gravity = "center"
                 android:textColor = "#ff0000"
                 android:textSize = "12dp"/>
-            <LinearLayout
+            <com.github.angads25.toggle.widget.LabeledSwitch
+                android:id="@+id/btnLED"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="80">
-
-            </LinearLayout>
+                android:layout_weight="80"
+                android:layout_margin="16dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:textSize="30dp"
+                app:textOn="ON"
+                app:textOff="OFF"
+                app:on="false"
+                app:colorBorder="#ffff00"/>
         </LinearLayout>
     </LinearLayout>
 
 
-
+<!--NavigateBar-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="10">
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="50">
 
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="50">
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="50">
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="50">
+
+        </LinearLayout>
     </LinearLayout>
 </LinearLayout>

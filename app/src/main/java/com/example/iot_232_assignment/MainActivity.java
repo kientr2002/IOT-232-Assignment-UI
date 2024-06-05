@@ -6,6 +6,11 @@ import android.util.Log;
 import android.widget.TextView;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.widget.AbsListView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.ScrollView;
+import android.widget.Toast;
 import com.github.angads25.toggle.interfaces.OnToggledListener;
 import com.github.angads25.toggle.model.ToggleableView;
 import com.github.angads25.toggle.widget.LabeledSwitch;
@@ -17,8 +22,8 @@ import java.nio.charset.Charset;
 
 public class MainActivity extends AppCompatActivity implements MQTTHelper.ConnectionListener{
     MQTTHelper mqttHelper;
-    TextView txtTemp, txtHumi, txtWifiInfo;
-    LabeledSwitch btnPUMP;
+    TextView txtTemp, txtHumi, txtWifiInfo, sensor1, sensor2, sensor3;
+    LabeledSwitch btnPUMP, btnLED;
     private static final String TAG = "MainActivity";
 
     @Override
@@ -27,16 +32,20 @@ public class MainActivity extends AppCompatActivity implements MQTTHelper.Connec
         setContentView(R.layout.activity_main);
 
         btnPUMP = findViewById(R.id.btnPUMP);
-
-        boolean isWifiConnected = getIntent().getBooleanExtra("WIFI_CONNECTED", false);
-
-        if (isWifiConnected) {
-            // Do something if WiFi is connected
-        } else {
-            // Do something if WiFi is not connected
-        }
-
-
+        btnLED = findViewById(R.id.btnLED);
+        sensor1 = findViewById(R.id.sensor1);
+        sensor2 = findViewById(R.id.sensor2);
+        sensor3 = findViewById(R.id.sensor3);
+        btnLED.setOnToggledListener(new OnToggledListener() {
+            @Override
+            public void onSwitched(ToggleableView toggleableView, boolean isOn) {
+                if(isOn) {
+                    sendDataMQTT("kientranvictory/feeds/button1", "1");
+                } else {
+                    sendDataMQTT("kientranvictory/feeds/button1", "0");
+                }
+            }
+        });
         btnPUMP.setOnToggledListener(new OnToggledListener() {
             @Override
             public void onSwitched(ToggleableView toggleableView, boolean isOn) {
@@ -82,13 +91,25 @@ public class MainActivity extends AppCompatActivity implements MQTTHelper.Connec
             @Override
             public void messageArrived(String topic, MqttMessage message) throws Exception {
                 Log.d("Test", topic + "===" + message.toString());
-                 if(topic.contains("button2")) {
+                if(topic.contains("button1")) {
+                    if(message.toString().equals("1")) {
+                        btnLED.setOn(true);
+                    } else if (message.toString().equals("0")) {
+                        btnLED.setOn(false);
+                    }
+                }else if(topic.contains("button2")) {
                     if(message.toString().equals("1")) {
                         btnPUMP.setOn(true);
                     } else if (message.toString().equals("0")) {
                         btnPUMP.setOn(false);
                     }
-                }
+                } else if(topic.contains("sensor1")){
+                     sensor1.setText(message.toString()+"%");
+                 } else if(topic.contains(("sensor2"))){
+                     sensor2.setText(message.toString() + "%");
+                 } else if(topic.contains("sensor3")){
+                     sensor3.setText(message.toString() + "%");
+                 }
             }
 
             @Override
