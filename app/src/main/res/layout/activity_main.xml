@@ -105,7 +105,7 @@
                             android:layout_width="0dp"
                             android:layout_height= "match_parent"
                             android:layout_weight = "70"
-                            android:text = "Area 1"
+                            android:text = "AREA 1"
                             android:textStyle="bold"
                             android:gravity = "center"/>
                         <TextView
@@ -123,7 +123,7 @@
                             android:layout_width="0dp"
                             android:layout_height= "match_parent"
                             android:layout_weight = "70"
-                            android:text = "Area 2"
+                            android:text = "AREA 2"
                             android:textStyle="bold"
                             android:gravity = "center"/>
                         <TextView
@@ -141,7 +141,7 @@
                             android:layout_width="0dp"
                             android:layout_height= "match_parent"
                             android:layout_weight = "70"
-                            android:text = "Area 3"
+                            android:text = "AREA 3"
                             android:textStyle="bold"
                             android:gravity = "center"/>
                         <TextView
@@ -164,7 +164,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:layout_weight="25"
-                        android:text = "Watering Schedule"
+                        android:text = "Temperature Value"
                         android:textStyle="bold"
                         android:gravity = "center"
                         android:textColor = "#ff0000"
@@ -177,14 +177,15 @@
                             android:layout_width="0dp"
                             android:layout_height= "match_parent"
                             android:layout_weight = "70"
-                            android:text = "8:00 AM"
+                            android:text = "AREA 1"
                             android:textStyle="bold"
                             android:gravity = "center"/>
                         <TextView
+                            android:id="@+id/sensor4"
                             android:layout_width="0dp"
                             android:layout_height= "match_parent"
                             android:layout_weight = "30"
-                            android:text = "OK"/>
+                            android:text = "34°C"/>
                     </LinearLayout>
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -194,14 +195,15 @@
                             android:layout_width="0dp"
                             android:layout_height= "match_parent"
                             android:layout_weight = "70"
-                            android:text = "10:00 AM"
+                            android:text = "AREA 2"
                             android:textStyle="bold"
                             android:gravity = "center"/>
                         <TextView
+                            android:id="@+id/sensor5"
                             android:layout_width="0dp"
                             android:layout_height= "match_parent"
                             android:layout_weight = "30"
-                            android:text = ""/>
+                            android:text = "34°C"/>
                     </LinearLayout>
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -211,14 +213,15 @@
                             android:layout_width="0dp"
                             android:layout_height= "match_parent"
                             android:layout_weight = "70"
-                            android:text = "6:00 PM"
+                            android:text = "AREA 3"
                             android:textStyle="bold"
                             android:gravity = "center"/>
                         <TextView
+                            android:id="@+id/sensor6"
                             android:layout_width="0dp"
                             android:layout_height= "match_parent"
                             android:layout_weight = "30"
-                            android:text = ""/>
+                            android:text = "34°C"/>
                     </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
@@ -228,13 +231,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="30"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                >
                 <!--        Park number-->
                 <LinearLayout
-
+                    android:id="@+id/informationDashboard"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="30"
+                    android:layout_marginLeft = "10dp"
+                    android:layout_marginRight = "10dp"
                     android:orientation="vertical">
                     <TextView
                         android:layout_width="match_parent"
@@ -245,37 +251,52 @@
                         android:gravity = "center"
                         android:textColor = "#ff0000"
                         android:textSize = "12dp"/>
-                    <LinearLayout
+                    <Button
+                        android:id="@+id/Area1"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
-                        android:layout_weight="30">
+                        android:layout_weight="30"
+                        android:layout_margin = "5dp"
+                        android:text="Area 1"
+                        android:textColor = "#ff0000"
 
-                    </LinearLayout>
-                    <LinearLayout
+                        />
+
+                    <Button
+                        android:id="@+id/Area2"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
-                        android:layout_weight="30">
+                        android:layout_weight="30"
+                        android:layout_margin = "5dp"
+                        android:text="Area 2"
+                        android:textColor = "#ff0000"
+                        />
 
-                    </LinearLayout>
-                    <LinearLayout
+                    <Button
+                        android:id="@+id/Area3"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
-                        android:layout_weight="30">
-
-                    </LinearLayout>
+                        android:layout_weight="30"
+                        android:layout_margin = "5dp"
+                        android:text="Area 3"
+                        android:textColor = "#ff0000"
+                        />
                 </LinearLayout>
                 <!--        Park number History-->
                 <LinearLayout
+                    android:id="@+id/informationDashboard2"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="70"
+                    android:layout_marginLeft = "10dp"
+                    android:layout_marginRight = "10dp"
                     android:orientation="vertical"
                     >
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:layout_weight="10"
-                        android:text = "Information"
+                        android:text = "Water Information"
                         android:textStyle="bold"
                         android:gravity = "center"
                         android:textColor = "#ff0000"
@@ -283,31 +304,23 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
-                        android:layout_weight="30">
+                        android:layout_weight="90">
 
                     </LinearLayout>
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:layout_weight="30">
 
-                    </LinearLayout>
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:layout_weight="30">
-
-                    </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
             <!--Controller Dashoard 15-->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="15">
-                <!--        Pump Button -->
+                android:layout_weight="15"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                >
+                <!--        Pump1 Button -->
                 <LinearLayout
-                    android:id="@+id/buttonPUMP"
+                    android:id="@+id/buttonPUMP1"
                     android:layout_marginRight="10dp"
                     android:layout_marginLeft="10dp"
                     android:layout_width="0dp"
@@ -318,60 +331,79 @@
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:layout_weight="20"
-                        android:text = "PUMP"
+                        android:text = "PUMP 1"
                         android:textStyle="bold"
                         android:gravity = "center"
                         android:textColor = "#ff0000"
                         android:textSize = "12dp"/>
-                    <com.github.angads25.toggle.widget.LabeledSwitch
-                        android:id="@+id/btnPUMP"
+                    <Button
+                        android:id="@+id/btnPUMP1"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:layout_weight="80"
-                        android:layout_margin="16dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginBottom="10dp"
-                        android:layout_marginLeft="30dp"
-                        android:layout_marginRight="30dp"
-                        android:textSize="30dp"
-                        app:textOn="ON"
-                        app:textOff="OFF"
-                        app:on="false"
-                        app:colorBorder="#ffff00"/>
+                        android:layout_margin = "5dp"
+                        android:text="OFF"
+                        android:textColor = "#ff0000"
+
+                        />
                 </LinearLayout>
-                <!--        LED Button-->
+                <!--        Pump2 Button-->
                 <LinearLayout
-                    android:id="@+id/buttonLED"
+                    android:id="@+id/buttonPUMP2"
                     android:layout_marginRight="10dp"
                     android:layout_marginLeft="10dp"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="50"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:layout_weight="50">
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:layout_weight="20"
-                        android:text = "LED"
+                        android:text = "PUMP 2"
                         android:textStyle="bold"
                         android:gravity = "center"
                         android:textColor = "#ff0000"
                         android:textSize = "12dp"/>
-                    <com.github.angads25.toggle.widget.LabeledSwitch
-                        android:id="@+id/btnLED"
+                    <Button
+                        android:id="@+id/btnPUMP2"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:layout_weight="80"
-                        android:layout_margin="16dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginBottom="10dp"
-                        android:layout_marginLeft="30dp"
-                        android:layout_marginRight="30dp"
-                        android:textSize="30dp"
-                        app:textOn="ON"
-                        app:textOff="OFF"
-                        app:on="false"
-                        app:colorBorder="#ffff00"/>
+                        android:layout_margin = "5dp"
+                        android:text="OFF"
+                        android:textColor = "#ff0000"
+
+                        />
+                </LinearLayout>
+        <!--                Pump3 Button-->
+                <LinearLayout
+                    android:id="@+id/buttonPUMP3"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:layout_weight="50">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="20"
+                        android:text = "PUMP 3"
+                        android:textStyle="bold"
+                        android:gravity = "center"
+                        android:textColor = "#ff0000"
+                        android:textSize = "12dp"/>
+                    <Button
+                        android:id="@+id/btnPUMP3"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="80"
+                        android:layout_margin = "5dp"
+                        android:text="OFF"
+                        android:textColor = "#ff0000"
+
+                        />
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>

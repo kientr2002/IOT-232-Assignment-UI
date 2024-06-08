@@ -19,7 +19,7 @@ public class MQTTHelper {
     public MqttAndroidClient mqttAndroidClient;
     public boolean connectResult = true;
 
-    public final String[] arrayTopics = {"kientranvictory/feeds/sensor1", "kientranvictory/feeds/sensor2", "kientranvictory/feeds/sensor3", "kientranvictory/feeds/button2", "kientranvictory/feeds/button1"};
+    public final String[] arrayTopics = {"kientranvictory/feeds/sensor1", "kientranvictory/feeds/sensor2", "kientranvictory/feeds/sensor3", "kientranvictory/feeds/sensor4", "kientranvictory/feeds/sensor5", "kientranvictory/feeds/sensor6","kientranvictory/feeds/button3", "kientranvictory/feeds/button2", "kientranvictory/feeds/button1"};
 
     final String clientId = "26092002";
     final String username = "kientranvictory";
