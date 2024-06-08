@@ -1,8 +1,12 @@
 package com.example.iot_232_assignment;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.graphics.Color;
+import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -20,7 +24,7 @@ import org.eclipse.paho.client.mqttv3.MqttException;
 import org.eclipse.paho.client.mqttv3.MqttMessage;
 import java.nio.charset.Charset;
 
-public class MainActivity extends AppCompatActivity implements MQTTHelper.ConnectionListener{
+public class MainActivity extends AppCompatActivity implements MQTTHelper.ConnectionListener {
     MQTTHelper mqttHelper;
     TextView txtTemp, txtHumi, txtWifiInfo, sensor1, sensor2, sensor3;
     LabeledSwitch btnPUMP, btnLED;
@@ -31,25 +35,59 @@ public class MainActivity extends AppCompatActivity implements MQTTHelper.Connec
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        LinearLayout dashboardLayout = findViewById(R.id.dashboardLayout);
+        LinearLayout NavigateBarLayout1 = findViewById(R.id.NavigateBarLayout1);
+        LinearLayout NavigateBarLayout2 = findViewById(R.id.NavigateBarLayout2);
+        LinearLayout NavigateBarLayout3 = findViewById(R.id.NavigateBarLayout3);
+        LinearLayout NavigateBarLayout4 = findViewById(R.id.NavigateBarLayout4);
+        LinearLayout DashboardInfo1 = findViewById(R.id.DashboardInfo1);
+        LinearLayout DashboardInfo2 = findViewById(R.id.DashboardInfo2);
+        LinearLayout buttonPUMP = findViewById(R.id.buttonPUMP);
+        LinearLayout buttonLED = findViewById(R.id.buttonLED);
+
+        GradientDrawable drawable = new GradientDrawable();
+        drawable.setShape(GradientDrawable.RECTANGLE);
+        drawable.setColor(Color.parseColor("#f2f6db"));
+        drawable.setCornerRadius(35);
+
+        GradientDrawable drawable2 = new GradientDrawable();
+        drawable2.setShape(GradientDrawable.RECTANGLE);
+        drawable2.setColor(Color.WHITE);;
+        drawable2.setCornerRadius(35);
+
+        dashboardLayout.setBackground(drawable);
+        NavigateBarLayout1.setBackground(drawable);
+        NavigateBarLayout2.setBackground(drawable);
+        NavigateBarLayout3.setBackground(drawable);
+        NavigateBarLayout4.setBackground(drawable);
+
+        DashboardInfo1.setBackground(drawable2);
+        DashboardInfo2.setBackground(drawable2);
+        buttonPUMP.setBackground(drawable2);
+        buttonLED.setBackground(drawable2);
+
         btnPUMP = findViewById(R.id.btnPUMP);
         btnLED = findViewById(R.id.btnLED);
         sensor1 = findViewById(R.id.sensor1);
         sensor2 = findViewById(R.id.sensor2);
         sensor3 = findViewById(R.id.sensor3);
+
+
         btnLED.setOnToggledListener(new OnToggledListener() {
             @Override
             public void onSwitched(ToggleableView toggleableView, boolean isOn) {
-                if(isOn) {
+                if (isOn) {
                     sendDataMQTT("kientranvictory/feeds/button1", "1");
                 } else {
                     sendDataMQTT("kientranvictory/feeds/button1", "0");
                 }
             }
         });
+
         btnPUMP.setOnToggledListener(new OnToggledListener() {
             @Override
             public void onSwitched(ToggleableView toggleableView, boolean isOn) {
-                if(isOn) {
+                if (isOn) {
                     sendDataMQTT("kientranvictory/feeds/button2", "1");
                 } else {
                     sendDataMQTT("kientranvictory/feeds/button2", "0");
@@ -77,7 +115,6 @@ public class MainActivity extends AppCompatActivity implements MQTTHelper.Connec
     }
 
     public void startMQTT() {
-
         mqttHelper = new MQTTHelper(this);
         mqttHelper.setConnectionListener(this);
         mqttHelper.setCallback(new MqttCallbackExtended() {
@@ -85,31 +122,30 @@ public class MainActivity extends AppCompatActivity implements MQTTHelper.Connec
             public void connectComplete(boolean reconnect, String serverURI) {}
 
             @Override
-            public void connectionLost(Throwable cause) {
-            }
+            public void connectionLost(Throwable cause) {}
 
             @Override
             public void messageArrived(String topic, MqttMessage message) throws Exception {
                 Log.d("Test", topic + "===" + message.toString());
-                if(topic.contains("button1")) {
-                    if(message.toString().equals("1")) {
+                if (topic.contains("button1")) {
+                    if (message.toString().equals("1")) {
                         btnLED.setOn(true);
                     } else if (message.toString().equals("0")) {
                         btnLED.setOn(false);
                     }
-                }else if(topic.contains("button2")) {
-                    if(message.toString().equals("1")) {
+                } else if (topic.contains("button2")) {
+                    if (message.toString().equals("1")) {
                         btnPUMP.setOn(true);
                     } else if (message.toString().equals("0")) {
                         btnPUMP.setOn(false);
                     }
-                } else if(topic.contains("sensor1")){
-                     sensor1.setText(message.toString()+"%");
-                 } else if(topic.contains(("sensor2"))){
-                     sensor2.setText(message.toString() + "%");
-                 } else if(topic.contains("sensor3")){
-                     sensor3.setText(message.toString() + "%");
-                 }
+                } else if (topic.contains("sensor1")) {
+                    sensor1.setText(message.toString() + "%");
+                } else if (topic.contains("sensor2")) {
+                    sensor2.setText(message.toString() + "%");
+                } else if (topic.contains("sensor3")) {
+                    sensor3.setText(message.toString() + "%");
+                }
             }
 
             @Override
@@ -117,9 +153,9 @@ public class MainActivity extends AppCompatActivity implements MQTTHelper.Connec
         });
     }
 
+    @Override
     public void onConnectionResult(boolean success) {
         if (!success) {
-            // Show alert dialog for connection failure
             runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
@@ -129,7 +165,6 @@ public class MainActivity extends AppCompatActivity implements MQTTHelper.Connec
                             .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
-                                    // Terminate the application
                                     finish();
                                     System.exit(0);
                                 }

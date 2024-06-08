@@ -4,328 +4,423 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="20dp"
     tools:context=".MainActivity"
-    android:orientation="vertical">
-    <!--Heading 5 -->
+    android:orientation="vertical"
+    android:background="@drawable/background">
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="5">
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="9"
-            android:text = "Welcome Home, Kien!"
-            android:textStyle="bold"
-            android:gravity = "center"
-            android:textColor = "#ff0000"
-            android:textSize = "25dp"/>
-    </LinearLayout>
-    <!--Information 15   -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="15">
-        <!--        Time API-->
+        android:layout_height="match_parent"
+        android:layout_margin="20dp"
+        android:orientation="vertical">
+        <!--Heading 5 -->
         <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="50">
-
-        </LinearLayout>
-        <!--        Weather API-->
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="50">
-
-        </LinearLayout>
-    </LinearLayout>
-
-    <!--Dashboard   55 -->
-    <!--    Title 5-->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="5">
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="9"
-            android:text = "Dashboard"
-            android:textStyle = "bold"
-            android:gravity = "left"
-            android:textColor = "#ff0000"
-            android:textSize = "21dp"
-            />
-    </LinearLayout>
-    <!--    Dashboard Information 15-->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="15"
-        android:orientation="horizontal">
-        <!--        Soil Hudmidity API-->
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="50"
-            android:orientation="vertical">
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="5">
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="25"
-                android:text = "Hudimity Soil Value"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="9"
+                android:text = "Welcome Home, Kien!"
                 android:textStyle="bold"
                 android:gravity = "center"
                 android:textColor = "#ff0000"
-                android:textSize = "12dp"/>
+                android:textSize = "25dp"/>
+        </LinearLayout>
+        <!--Information 15   -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="15">
+            <!--        Time API-->
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="25">
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height= "match_parent"
-                    android:layout_weight = "70"
-                    android:text = "Area 1"
-                    android:textStyle="bold"
-                    android:gravity = "center"/>
-                <TextView
-                    android:id="@+id/sensor1"
-                    android:layout_width="0dp"
-                    android:layout_height= "match_parent"
-                    android:layout_weight = "30"
-                    android:text = "60%"/>
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="50">
+
             </LinearLayout>
+            <!--        Weather API-->
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="25">
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height= "match_parent"
-                    android:layout_weight = "70"
-                    android:text = "Area 2"
-                    android:textStyle="bold"
-                    android:gravity = "center"/>
-                <TextView
-                    android:id="@+id/sensor2"
-                    android:layout_width="0dp"
-                    android:layout_height= "match_parent"
-                    android:layout_weight = "30"
-                    android:text = "60%"/>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="25">
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height= "match_parent"
-                    android:layout_weight = "70"
-                    android:text = "Area 3"
-                    android:textStyle="bold"
-                    android:gravity = "center"/>
-                <TextView
-                    android:id="@+id/sensor3"
-                    android:layout_width="0dp"
-                    android:layout_height= "match_parent"
-                    android:layout_weight = "30"
-                    android:text = "60%"/>
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="50">
+
             </LinearLayout>
         </LinearLayout>
-        <!--        Watering number API-->
+
+        <!--Dashboard    -->
+        <!--    Title 5-->
         <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="50"
-            android:orientation="vertical">
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="5">
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="25"
-                android:text = "Watering Schedule"
-                android:textStyle="bold"
-                android:gravity = "center"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="9"
+                android:text = "Dashboard"
+                android:textStyle = "bold"
+                android:gravity = "left"
                 android:textColor = "#ff0000"
-                android:textSize = "12dp"/>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="25">
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height= "match_parent"
-                    android:layout_weight = "70"
-                    android:text = "8:00 AM"
-                    android:textStyle="bold"
-                    android:gravity = "center"/>
-                <TextView
-                    android:id="@+id/sensor1"
-                    android:layout_width="0dp"
-                    android:layout_height= "match_parent"
-                    android:layout_weight = "30"
-                    android:text = "OK"/>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="25">
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height= "match_parent"
-                    android:layout_weight = "70"
-                    android:text = "10:00 AM"
-                    android:textStyle="bold"
-                    android:gravity = "center"/>
-                <TextView
-                    android:id="@+id/sensor2"
-                    android:layout_width="0dp"
-                    android:layout_height= "match_parent"
-                    android:layout_weight = "30"
-                    android:text = ""/>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="25">
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height= "match_parent"
-                    android:layout_weight = "70"
-                    android:text = "6:00 PM"
-                    android:textStyle="bold"
-                    android:gravity = "center"/>
-                <TextView
-                    android:id="@+id/sensor3"
-                    android:layout_width="0dp"
-                    android:layout_height= "match_parent"
-                    android:layout_weight = "30"
-                    android:text = ""/>
-            </LinearLayout>
+                android:textSize = "21dp"
+                />
         </LinearLayout>
-    </LinearLayout>
-    <!--Dashboard Histort 35-->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="30"
-        android:orientation="horizontal">
-        <!--        Park number-->
+<!--        Main Board-->
         <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="30">
-
-        </LinearLayout>
-        <!--        Park number History-->
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="70">
-
-        </LinearLayout>
-    </LinearLayout>
-    <!--Controller Dashoard 15-->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="15">
-        <!--        Pump Button -->
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
+            android:id="@+id/dashboardLayout"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="65"
             android:orientation="vertical"
-            android:layout_weight="50">
-            <TextView
+            >
+
+            <!--    Dashboard Information 15-->
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="20"
-                android:text = "PUMP"
-                android:textStyle="bold"
-                android:gravity = "center"
-                android:textColor = "#ff0000"
-                android:textSize = "12dp"/>
-            <com.github.angads25.toggle.widget.LabeledSwitch
-                android:id="@+id/btnPUMP"
+                android:layout_weight="15"
+                android:orientation="horizontal">
+                <!--        Soil Hudmidity API-->
+                <LinearLayout
+                    android:id="@+id/DashboardInfo1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="50"
+                    android:orientation="vertical"
+                    android:layout_margin="10dp">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="25"
+                        android:text = "Hudimity Soil Value"
+                        android:textStyle="bold"
+                        android:gravity = "center"
+                        android:textColor = "#ff0000"
+                        android:textSize = "12dp"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="25">
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height= "match_parent"
+                            android:layout_weight = "70"
+                            android:text = "Area 1"
+                            android:textStyle="bold"
+                            android:gravity = "center"/>
+                        <TextView
+                            android:id="@+id/sensor1"
+                            android:layout_width="0dp"
+                            android:layout_height= "match_parent"
+                            android:layout_weight = "30"
+                            android:text = "60%"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="25">
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height= "match_parent"
+                            android:layout_weight = "70"
+                            android:text = "Area 2"
+                            android:textStyle="bold"
+                            android:gravity = "center"/>
+                        <TextView
+                            android:id="@+id/sensor2"
+                            android:layout_width="0dp"
+                            android:layout_height= "match_parent"
+                            android:layout_weight = "30"
+                            android:text = "60%"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="25">
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height= "match_parent"
+                            android:layout_weight = "70"
+                            android:text = "Area 3"
+                            android:textStyle="bold"
+                            android:gravity = "center"/>
+                        <TextView
+                            android:id="@+id/sensor3"
+                            android:layout_width="0dp"
+                            android:layout_height= "match_parent"
+                            android:layout_weight = "30"
+                            android:text = "60%"/>
+                    </LinearLayout>
+                </LinearLayout>
+                <!--        Watering number API-->
+                <LinearLayout
+                    android:id="@+id/DashboardInfo2"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="50"
+                    android:orientation="vertical"
+                    android:layout_margin="10dp">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="25"
+                        android:text = "Watering Schedule"
+                        android:textStyle="bold"
+                        android:gravity = "center"
+                        android:textColor = "#ff0000"
+                        android:textSize = "12dp"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="25">
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height= "match_parent"
+                            android:layout_weight = "70"
+                            android:text = "8:00 AM"
+                            android:textStyle="bold"
+                            android:gravity = "center"/>
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height= "match_parent"
+                            android:layout_weight = "30"
+                            android:text = "OK"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="25">
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height= "match_parent"
+                            android:layout_weight = "70"
+                            android:text = "10:00 AM"
+                            android:textStyle="bold"
+                            android:gravity = "center"/>
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height= "match_parent"
+                            android:layout_weight = "30"
+                            android:text = ""/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="25">
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height= "match_parent"
+                            android:layout_weight = "70"
+                            android:text = "6:00 PM"
+                            android:textStyle="bold"
+                            android:gravity = "center"/>
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height= "match_parent"
+                            android:layout_weight = "30"
+                            android:text = ""/>
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+            <!--Dashboard History 35-->
+            <LinearLayout
+
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="80"
-                android:layout_margin="16dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:layout_marginLeft="30dp"
-                android:layout_marginRight="30dp"
-                android:textSize="30dp"
-                app:textOn="ON"
-                app:textOff="OFF"
-                app:on="false"
-                app:colorBorder="#ffff00"/>
-        </LinearLayout>
-        <!--        LED Button-->
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="50"
-            android:orientation="vertical">
-            <TextView
+                android:layout_weight="30"
+                android:orientation="horizontal">
+                <!--        Park number-->
+                <LinearLayout
+
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="30"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="10"
+                        android:text = "Area"
+                        android:textStyle="bold"
+                        android:gravity = "center"
+                        android:textColor = "#ff0000"
+                        android:textSize = "12dp"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="30">
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="30">
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="30">
+
+                    </LinearLayout>
+                </LinearLayout>
+                <!--        Park number History-->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="70"
+                    android:orientation="vertical"
+                    >
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="10"
+                        android:text = "Information"
+                        android:textStyle="bold"
+                        android:gravity = "center"
+                        android:textColor = "#ff0000"
+                        android:textSize = "12dp"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="30">
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="30">
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="30">
+
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+            <!--Controller Dashoard 15-->
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="20"
-                android:text = "LED"
-                android:textStyle="bold"
-                android:gravity = "center"
-                android:textColor = "#ff0000"
-                android:textSize = "12dp"/>
-            <com.github.angads25.toggle.widget.LabeledSwitch
-                android:id="@+id/btnLED"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="80"
-                android:layout_margin="16dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:layout_marginLeft="30dp"
-                android:layout_marginRight="30dp"
-                android:textSize="30dp"
-                app:textOn="ON"
-                app:textOff="OFF"
-                app:on="false"
-                app:colorBorder="#ffff00"/>
+                android:layout_weight="15">
+                <!--        Pump Button -->
+                <LinearLayout
+                    android:id="@+id/buttonPUMP"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:layout_weight="50">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="20"
+                        android:text = "PUMP"
+                        android:textStyle="bold"
+                        android:gravity = "center"
+                        android:textColor = "#ff0000"
+                        android:textSize = "12dp"/>
+                    <com.github.angads25.toggle.widget.LabeledSwitch
+                        android:id="@+id/btnPUMP"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="80"
+                        android:layout_margin="16dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginRight="30dp"
+                        android:textSize="30dp"
+                        app:textOn="ON"
+                        app:textOff="OFF"
+                        app:on="false"
+                        app:colorBorder="#ffff00"/>
+                </LinearLayout>
+                <!--        LED Button-->
+                <LinearLayout
+                    android:id="@+id/buttonLED"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="50"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="20"
+                        android:text = "LED"
+                        android:textStyle="bold"
+                        android:gravity = "center"
+                        android:textColor = "#ff0000"
+                        android:textSize = "12dp"/>
+                    <com.github.angads25.toggle.widget.LabeledSwitch
+                        android:id="@+id/btnLED"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="80"
+                        android:layout_margin="16dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginRight="30dp"
+                        android:textSize="30dp"
+                        app:textOn="ON"
+                        app:textOff="OFF"
+                        app:on="false"
+                        app:colorBorder="#ffff00"/>
+                </LinearLayout>
+            </LinearLayout>
         </LinearLayout>
-    </LinearLayout>
 
 
-<!--NavigateBar-->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="10">
+
+        <!--NavigateBar-->
         <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="50">
 
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="50">
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="10"
+            android:layout_marginTop="10dp">
+            <LinearLayout
+                android:id="@+id/NavigateBarLayout1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="50"
+                android:layout_margin="5dp"
+                android:orientation="horizontal">
 
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="50">
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/NavigateBarLayout2"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="50"
+                android:layout_margin="5dp"
+                android:orientation="horizontal">
 
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="50">
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/NavigateBarLayout3"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="50"
+                android:layout_margin="5dp"
+                android:orientation="horizontal">
 
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/NavigateBarLayout4"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="50"
+                android:layout_margin="5dp"
+                android:orientation="horizontal">
+
+            </LinearLayout>
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>
