@@ -7,26 +7,36 @@ import androidx.core.app.ActivityCompat;
 import android.app.AlertDialog;
 
 import android.Manifest;
+
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.pm.PackageManager;
+import android.content.Intent;
+
 import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
+
 import android.location.Address;
 import android.location.Geocoder;
+
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
+
 import android.util.Log;
+
 import android.view.View;
+
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.ImageButton;
 
 import com.github.angads25.toggle.interfaces.OnToggledListener;
 import com.github.angads25.toggle.widget.LabeledSwitch;
+
 import org.eclipse.paho.client.mqttv3.IMqttDeliveryToken;
 import org.eclipse.paho.client.mqttv3.MqttCallbackExtended;
 import org.eclipse.paho.client.mqttv3.MqttException;
@@ -51,7 +61,7 @@ import org.json.JSONObject;
 
 public class MainActivity extends AppCompatActivity implements MQTTHelper.ConnectionListener {
 
-    private static final String API_KEY = "";
+    private static final String API_KEY = "36f8a3d576b623a3ca7d36e8c458bc19";
     private static final String API_BASE_URL = "http://api.openweathermap.org/data/2.5/";
     private static final int UPDATE_INTERVAL = 60000; // 60 seconds
     private Handler handler = new Handler();
@@ -64,6 +74,12 @@ public class MainActivity extends AppCompatActivity implements MQTTHelper.Connec
     private Button Area1;
     private Button Area2;
     private Button Area3;
+
+    private ImageButton homeButton;
+    private ImageButton scheduleButton;
+    private ImageButton mixButton;
+    private ImageButton backButton;
+
 
     MQTTHelper mqttHelper;
     TextView sensor1, sensor2, sensor3, sensor4, sensor5, sensor6, updated_at;
@@ -125,6 +141,11 @@ public class MainActivity extends AppCompatActivity implements MQTTHelper.Connec
         sensor4 = findViewById(R.id.sensor4);
         sensor5 = findViewById(R.id.sensor5);
         sensor6 = findViewById(R.id.sensor6);
+
+        homeButton  = findViewById(R.id.homeButton);
+        scheduleButton = findViewById(R.id.scheduleButton);
+        mixButton = findViewById(R.id.mixButton);
+        backButton = findViewById(R.id.backButton);
 
         GradientDrawable drawable = new GradientDrawable();
         drawable.setShape(GradientDrawable.RECTANGLE);
@@ -216,6 +237,38 @@ public class MainActivity extends AppCompatActivity implements MQTTHelper.Connec
             public void onClick(View v) {
                 turnOffAllButtons();
                 Area3.setBackgroundColor(Color.GREEN); // Set the clicked button to green
+            }
+        });
+
+
+        homeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Handle button click
+                Toast.makeText(MainActivity.this, "ImageButton clicked", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        scheduleButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, ScheduleActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        mixButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, MixActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
             }
         });
 
