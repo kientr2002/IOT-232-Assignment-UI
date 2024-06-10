@@ -162,14 +162,24 @@ public class MainActivity extends AppCompatActivity implements MQTTHelper.Connec
         drawable3.setColor(Color.WHITE);
         drawable3.setCornerRadius(35);
 
-        dashboardLayout.setBackground(drawable);
+        GradientDrawable drawable4 = new GradientDrawable();
+        drawable4.setShape(GradientDrawable.RECTANGLE);
+        drawable4.setColor(Color.WHITE);
+        drawable4.setCornerRadius(35);
+
+        GradientDrawable drawable5 = new GradientDrawable();
+        drawable5.setShape(GradientDrawable.RECTANGLE);
+        drawable5.setColor(Color.parseColor("#f2f6db"));
+        drawable5.setCornerRadius(35);
+
+        dashboardLayout.setBackground(drawable5);
         NavigateBarLayout1.setBackground(drawable);
         NavigateBarLayout2.setBackground(drawable);
         NavigateBarLayout3.setBackground(drawable);
         NavigateBarLayout4.setBackground(drawable);
 
-        DashboardInfo1.setBackground(drawable2);
-        DashboardInfo2.setBackground(drawable2);
+        DashboardInfo1.setBackground(drawable4);
+        DashboardInfo2.setBackground(drawable4);
         buttonPUMP1.setBackground(drawable2);
         buttonPUMP2.setBackground(drawable2);
         buttonPUMP3.setBackground(drawable2);
@@ -244,8 +254,7 @@ public class MainActivity extends AppCompatActivity implements MQTTHelper.Connec
         homeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Handle button click
-                Toast.makeText(MainActivity.this, "ImageButton clicked", Toast.LENGTH_SHORT).show();
+
             }
         });
 
@@ -416,7 +425,7 @@ public class MainActivity extends AppCompatActivity implements MQTTHelper.Connec
                             .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
-                                    finish();
+                                    startMQTT();
                                     System.exit(0);
                                 }
                             })

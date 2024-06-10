@@ -14,11 +14,14 @@ import org.eclipse.paho.client.mqttv3.MqttConnectOptions;
 import org.eclipse.paho.client.mqttv3.MqttException;
 import org.eclipse.paho.client.mqttv3.MqttMessage;
 
+import java.util.HashSet;
+import java.util.Set;
+
 
 public class MQTTHelper {
     public MqttAndroidClient mqttAndroidClient;
     public boolean connectResult = true;
-
+    private Set<String> subscribedTopics = new HashSet<>();
     public final String[] arrayTopics = {"kientranvictory/feeds/sensor1", "kientranvictory/feeds/sensor2", "kientranvictory/feeds/sensor3", "kientranvictory/feeds/sensor4", "kientranvictory/feeds/sensor5", "kientranvictory/feeds/sensor6","kientranvictory/feeds/button3", "kientranvictory/feeds/button2", "kientranvictory/feeds/button1"};
 
     final String clientId = "26092002";
@@ -110,26 +113,33 @@ public class MQTTHelper {
         }
     }
 
-    private void subscribeToTopic() {
+    public void subscribeToTopic() {
+
         for (int i = 0; i < arrayTopics.length; i++) {
             final int index = i;
-            try {
-                mqttAndroidClient.subscribe(arrayTopics[i], 0, null, new IMqttActionListener() {
-                    @Override
-                    public void onSuccess(IMqttToken asyncActionToken) {
-                        Log.d(arrayTopics[index], ":Subscribed!");
-                    }
+            if (subscribedTopics.contains(arrayTopics[i])) {
+                Log.d(arrayTopics[i], ":Already subscribed");
+                continue;
+            } else {
+                try {
+                    mqttAndroidClient.subscribe(arrayTopics[i], 0, null, new IMqttActionListener() {
+                        @Override
+                        public void onSuccess(IMqttToken asyncActionToken) {
+                            Log.d(arrayTopics[index], ":Subscribed!");
+                            subscribedTopics.add(arrayTopics[index]);
+                        }
 
-                    @Override
-                    public void onFailure(IMqttToken asyncActionToken, Throwable exception) {
-                        Log.d(arrayTopics[index], ":Subscribed fail!");
-                    }
-                });
-
-            } catch (MqttException ex) {
-                System.err.println("Exceptionst subscribing");
-                ex.printStackTrace();
+                        @Override
+                        public void onFailure(IMqttToken asyncActionToken, Throwable exception) {
+                            Log.d(arrayTopics[index], ":Subscribed fail!");
+                        }
+                    });
+                } catch (MqttException ex) {
+                    System.err.println("Exception subscribing");
+                    ex.printStackTrace();
+                }
             }
+
         }
     }
 

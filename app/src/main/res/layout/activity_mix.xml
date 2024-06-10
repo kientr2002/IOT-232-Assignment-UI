@@ -12,21 +12,6 @@
         android:layout_height="match_parent"
         android:layout_margin="20dp"
         android:orientation="vertical">
-        <!--Heading 5 -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="5">
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="9"
-                android:text = "Welcome Home, Kien!"
-                android:textStyle="bold"
-                android:gravity = "center"
-                android:textColor = "#ff0000"
-                android:textSize = "25dp"/>
-        </LinearLayout>
         <!--Information 15   -->
         <LinearLayout
             android:layout_width="match_parent"
@@ -73,7 +58,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="9"
-                android:text = "Dashboard"
+                android:text = "Mix Setting"
                 android:textStyle = "bold"
                 android:gravity = "left"
                 android:textColor = "#ff0000"
@@ -95,7 +80,7 @@
                 android:layout_height="0dp"
                 android:layout_weight="15"
                 android:orientation="horizontal">
-                <!--        Soil Hudmidity API-->
+                <!--        Watering API-->
                 <LinearLayout
                     android:id="@+id/DashboardInfo1"
                     android:layout_width="0dp"
@@ -107,67 +92,25 @@
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:layout_weight="25"
-                        android:text = "Hudimity Soil Value"
+                        android:text = "Watering"
                         android:textStyle="bold"
                         android:gravity = "center"
                         android:textColor = "#ff0000"
                         android:textSize = "12dp"/>
-                    <LinearLayout
+                    <TextView
+                        android:id="@+id/Watering"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
-                        android:layout_weight="25">
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height= "match_parent"
-                            android:layout_weight = "70"
-                            android:text = "AREA 1"
-                            android:textStyle="bold"
-                            android:gravity = "center"/>
-                        <TextView
-                            android:id="@+id/sensor1"
-                            android:layout_width="0dp"
-                            android:layout_height= "match_parent"
-                            android:layout_weight = "30"
-                            android:text = "60%"/>
-                    </LinearLayout>
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:layout_weight="25">
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height= "match_parent"
-                            android:layout_weight = "70"
-                            android:text = "AREA 2"
-                            android:textStyle="bold"
-                            android:gravity = "center"/>
-                        <TextView
-                            android:id="@+id/sensor2"
-                            android:layout_width="0dp"
-                            android:layout_height= "match_parent"
-                            android:layout_weight = "30"
-                            android:text = "60%"/>
-                    </LinearLayout>
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:layout_weight="25">
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height= "match_parent"
-                            android:layout_weight = "70"
-                            android:text = "AREA 3"
-                            android:textStyle="bold"
-                            android:gravity = "center"/>
-                        <TextView
-                            android:id="@+id/sensor3"
-                            android:layout_width="0dp"
-                            android:layout_height= "match_parent"
-                            android:layout_weight = "30"
-                            android:text = "60%"/>
-                    </LinearLayout>
+                        android:layout_weight="75"
+                        android:text="10000/50000ml"
+                        android:textSize="20dp"
+                        android:textStyle="bold"
+                        android:textColor="#ff0000"
+                        android:gravity="center"
+                        android:layout_margin="5dp"
+                        />
                 </LinearLayout>
-                <!--        Watering number API-->
+                <!--       Time Estimate API-->
                 <LinearLayout
                     android:id="@+id/DashboardInfo2"
                     android:layout_width="0dp"
@@ -179,65 +122,23 @@
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:layout_weight="25"
-                        android:text = "Temperature Value"
+                        android:text = "Solution"
                         android:textStyle="bold"
                         android:gravity = "center"
                         android:textColor = "#ff0000"
                         android:textSize = "12dp"/>
-                    <LinearLayout
+                    <TextView
+                        android:id="@+id/TimeEstimate"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
-                        android:layout_weight="25">
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height= "match_parent"
-                            android:layout_weight = "70"
-                            android:text = "AREA 1"
-                            android:textStyle="bold"
-                            android:gravity = "center"/>
-                        <TextView
-                            android:id="@+id/sensor4"
-                            android:layout_width="0dp"
-                            android:layout_height= "match_parent"
-                            android:layout_weight = "30"
-                            android:text = "34°C"/>
-                    </LinearLayout>
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:layout_weight="25">
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height= "match_parent"
-                            android:layout_weight = "70"
-                            android:text = "AREA 2"
-                            android:textStyle="bold"
-                            android:gravity = "center"/>
-                        <TextView
-                            android:id="@+id/sensor5"
-                            android:layout_width="0dp"
-                            android:layout_height= "match_parent"
-                            android:layout_weight = "30"
-                            android:text = "34°C"/>
-                    </LinearLayout>
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:layout_weight="25">
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height= "match_parent"
-                            android:layout_weight = "70"
-                            android:text = "AREA 3"
-                            android:textStyle="bold"
-                            android:gravity = "center"/>
-                        <TextView
-                            android:id="@+id/sensor6"
-                            android:layout_width="0dp"
-                            android:layout_height= "match_parent"
-                            android:layout_weight = "30"
-                            android:text = "34°C"/>
-                    </LinearLayout>
+                        android:layout_weight="75"
+                        android:text="200/5000ml"
+                        android:textSize="20dp"
+                        android:textStyle="bold"
+                        android:textColor="#ff0000"
+                        android:gravity="center"
+                        android:layout_margin="5dp"
+                        />
                 </LinearLayout>
             </LinearLayout>
             <!--Dashboard History 35-->
@@ -311,7 +212,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:layout_weight="10"
-                        android:text = "Water Information"
+                        android:text = "Mix History"
                         android:textStyle="bold"
                         android:gravity = "center"
                         android:textColor = "#ff0000"
@@ -342,84 +243,19 @@
                     android:layout_height="match_parent"
                     android:orientation="vertical"
                     android:layout_weight="50">
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:layout_weight="20"
-                        android:text = "PUMP 1"
-                        android:textStyle="bold"
-                        android:gravity = "center"
-                        android:textColor = "#ff0000"
-                        android:textSize = "12dp"/>
+
                     <Button
-                        android:id="@+id/btnPUMP1"
+                        android:id="@+id/newSchedule"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
+                        android:layout_margin="5dp"
                         android:layout_weight="80"
-                        android:layout_margin = "5dp"
-                        android:text="OFF"
-                        android:textColor = "#ff0000"
+                        android:text="New Mix Setting"
+                        android:textColor="#ff0000"
 
                         />
                 </LinearLayout>
-                <!--        Pump2 Button-->
-                <LinearLayout
-                    android:id="@+id/buttonPUMP2"
-                    android:layout_marginRight="10dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:layout_weight="50">
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:layout_weight="20"
-                        android:text = "PUMP 2"
-                        android:textStyle="bold"
-                        android:gravity = "center"
-                        android:textColor = "#ff0000"
-                        android:textSize = "12dp"/>
-                    <Button
-                        android:id="@+id/btnPUMP2"
-                        android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:layout_weight="80"
-                        android:layout_margin = "5dp"
-                        android:text="OFF"
-                        android:textColor = "#ff0000"
 
-                        />
-                </LinearLayout>
-                <!--                Pump3 Button-->
-                <LinearLayout
-                    android:id="@+id/buttonPUMP3"
-                    android:layout_marginRight="10dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:layout_weight="50">
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:layout_weight="20"
-                        android:text = "PUMP 3"
-                        android:textStyle="bold"
-                        android:gravity = "center"
-                        android:textColor = "#ff0000"
-                        android:textSize = "12dp"/>
-                    <Button
-                        android:id="@+id/btnPUMP3"
-                        android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:layout_weight="80"
-                        android:layout_margin = "5dp"
-                        android:text="OFF"
-                        android:textColor = "#ff0000"
-
-                        />
-                </LinearLayout>
             </LinearLayout>
         </LinearLayout>
 

@@ -76,6 +76,11 @@ public class ScheduleActivity extends AppCompatActivity implements MQTTHelper.Co
     private ImageButton mixButton;
     private ImageButton backButton;
 
+    private Button Area1;
+    private Button Area2;
+    private Button Area3;
+    private Button newScheduleButton;
+
     MQTTHelper mqttHelper;
     private static final String TAG = "ScheduleActivity";
 
@@ -97,6 +102,24 @@ public class ScheduleActivity extends AppCompatActivity implements MQTTHelper.Co
         forecastTextView = findViewById(R.id.forecastTextView);
         weatherImageView = findViewById(R.id.weatherImageView);
 
+        LinearLayout dashboardLayout = findViewById(R.id.dashboardLayout);
+        LinearLayout DashboardInfo1 = findViewById(R.id.DashboardInfo1);
+        LinearLayout DashboardInfo2 = findViewById(R.id.DashboardInfo2);
+        LinearLayout informationDashboard = findViewById(R.id.informationDashboard);
+        LinearLayout informationDashboard2 = findViewById(R.id.informationDashboard2);
+
+
+
+        Area1 = findViewById(R.id.Area1);
+        Area2 = findViewById(R.id.Area2);
+        Area3 = findViewById(R.id.Area3);
+        newScheduleButton = findViewById(R.id.newSchedule);
+
+        Area1.setBackgroundColor(Color.WHITE);
+        Area2.setBackgroundColor(Color.WHITE);
+        Area3.setBackgroundColor(Color.WHITE);
+        newScheduleButton.setBackgroundColor(Color.WHITE);
+
         homeButton  = findViewById(R.id.homeButton);
         scheduleButton = findViewById(R.id.scheduleButton);
         mixButton = findViewById(R.id.mixButton);
@@ -107,24 +130,76 @@ public class ScheduleActivity extends AppCompatActivity implements MQTTHelper.Co
         drawable.setColor(Color.parseColor("#f2f6db"));
         drawable.setCornerRadius(35);
 
+        GradientDrawable drawable2 = new GradientDrawable();
+        drawable2.setShape(GradientDrawable.RECTANGLE);
+        drawable2.setColor(Color.WHITE);
+        drawable2.setCornerRadius(35);
+
+        GradientDrawable drawable3 = new GradientDrawable();
+        drawable3.setShape(GradientDrawable.RECTANGLE);
+        drawable3.setColor(Color.WHITE);
+        drawable3.setCornerRadius(35);
+
+        GradientDrawable drawable4 = new GradientDrawable();
+        drawable4.setShape(GradientDrawable.RECTANGLE);
+        drawable4.setColor(Color.WHITE);
+        drawable4.setCornerRadius(35);
+
+        GradientDrawable drawable5 = new GradientDrawable();
+        drawable5.setShape(GradientDrawable.RECTANGLE);
+        drawable5.setColor(Color.parseColor("#f2f6db"));
+        drawable5.setCornerRadius(35);
+
+        dashboardLayout.setBackground(drawable5);
+
+        DashboardInfo1.setBackground(drawable4);
+        DashboardInfo2.setBackground(drawable4);
+
+        informationDashboard.setBackground(drawable3);
+        informationDashboard2.setBackground(drawable3);
+
         NavigateBarLayout1.setBackground(drawable);
         NavigateBarLayout2.setBackground(drawable);
         NavigateBarLayout3.setBackground(drawable);
         NavigateBarLayout4.setBackground(drawable);
 
+        Area1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                turnOffAllButtons();
+                Area1.setBackgroundColor(Color.GREEN);
+            }
+        });
+
+        Area2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                turnOffAllButtons();
+                Area2.setBackgroundColor(Color.GREEN); // Set the clicked button to green
+            }
+        });
+
+        Area3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                turnOffAllButtons();
+                Area3.setBackgroundColor(Color.GREEN); // Set the clicked button to green
+            }
+        });
+
         homeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Handle button click
-                Toast.makeText(ScheduleActivity.this, "ImageButton clicked", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(ScheduleActivity.this, MainActivity.class);
+                startActivity(intent);
             }
         });
 
         scheduleButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ScheduleActivity.this, ScheduleActivity.class);
-                startActivity(intent);
+
             }
         });
 
@@ -229,7 +304,11 @@ public class ScheduleActivity extends AppCompatActivity implements MQTTHelper.Co
             public void deliveryComplete(IMqttDeliveryToken token) {}
         });
     }
-
+    private void turnOffAllButtons() {
+        Area1.setBackgroundColor(Color.WHITE); // Set other buttons to red
+        Area2.setBackgroundColor(Color.WHITE); // Set other buttons to red
+        Area3.setBackgroundColor(Color.WHITE); // Set other buttons to red
+    }
     public void onConnectionResult(boolean success) {
         if (!success) {
             runOnUiThread(new Runnable() {
