@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/background"
+    tools:context=".AddScheduleActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="25"
+            android:orientation="vertical"
+            android:gravity = "center">
+            <!--        Time API-->
+            <LinearLayout
+                android:id="@+id/addressContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/address"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Ho Chi Minh City"
+                    android:textSize="18dp" />
+
+                <TextView
+                    android:id="@+id/forecastTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="20 April 2012"
+                    android:textSize="14dp" />
+            </LinearLayout>
+            <ImageView android:id="@+id/weatherImageView" android:layout_width="25dp" android:layout_height="25dp"
+                android:src="@drawable/sunny"/>
+            <Space android:layout_width="wrap_content" android:layout_height="5dp"/>
+            <TextView android:id="@+id/weatherTextView" android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:textSize="12dp" android:text="Sunrise"/>
+        </LinearLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Area"
+            android:textSize="18sp" />
+
+        <Spinner
+            android:id="@+id/area_spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:entries="@array/area_options" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Time to Start"
+            android:textSize="18sp"
+            android:layout_marginTop="16dp" />
+
+        <TimePicker
+            android:id="@+id/time_picker"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:timePickerMode="spinner" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mode"
+            android:textSize="18sp"
+            android:layout_marginTop="16dp" />
+
+        <Spinner
+            android:id="@+id/mode_spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:entries="@array/mode_options" />
+
+        <Button
+            android:id="@+id/ok_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="OK"
+            android:layout_marginTop="24dp" />
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="10"
+            android:layout_marginTop="10dp">
+            <LinearLayout
+                android:id="@+id/NavigateBarLayout1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="50"
+                android:layout_margin="5dp"
+                android:orientation="horizontal">
+                <ImageButton
+                    android:id="@+id/homeButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/home"
+                    android:scaleType="fitCenter"
+                    android:adjustViewBounds = "true"
+                    android:background="?android:attr/selectableItemBackgroundBorderless"
+                    android:padding="8dp"
+                    android:layout_gravity="center" />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/NavigateBarLayout2"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="50"
+                android:layout_margin="5dp"
+                android:orientation="horizontal">
+                <ImageButton
+                    android:id="@+id/scheduleButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/schedule"
+                    android:scaleType="fitCenter"
+                    android:adjustViewBounds = "true"
+                    android:background="?android:attr/selectableItemBackgroundBorderless"
+                    android:padding="8dp"
+                    android:layout_gravity="center" />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/NavigateBarLayout3"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="50"
+                android:layout_margin="5dp"
+                android:orientation="horizontal">
+                <ImageButton
+                    android:id="@+id/mixButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/pump"
+                    android:scaleType="fitCenter"
+                    android:adjustViewBounds = "true"
+                    android:background="?android:attr/selectableItemBackgroundBorderless"
+                    android:padding="8dp"
+                    android:layout_gravity="center" />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/NavigateBarLayout4"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="50"
+                android:layout_margin="5dp"
+                android:orientation="horizontal">
+                <ImageButton
+                    android:id="@+id/backButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/back"
+                    android:scaleType="fitCenter"
+                    android:adjustViewBounds = "true"
+                    android:background="?android:attr/selectableItemBackgroundBorderless"
+                    android:padding="8dp"
+                    android:layout_gravity="center" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

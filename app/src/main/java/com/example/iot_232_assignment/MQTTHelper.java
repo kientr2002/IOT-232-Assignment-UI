@@ -118,14 +118,14 @@ public class MQTTHelper {
         for (int i = 0; i < arrayTopics.length; i++) {
             final int index = i;
             if (subscribedTopics.contains(arrayTopics[i])) {
-                Log.d(arrayTopics[i], ":Already subscribed");
+//                Log.d(arrayTopics[i], ":Already subscribed");
                 continue;
             } else {
                 try {
                     mqttAndroidClient.subscribe(arrayTopics[i], 0, null, new IMqttActionListener() {
                         @Override
                         public void onSuccess(IMqttToken asyncActionToken) {
-                            Log.d(arrayTopics[index], ":Subscribed!");
+//                            Log.d(arrayTopics[index], ":Subscribed!");
                             subscribedTopics.add(arrayTopics[index]);
                         }
 

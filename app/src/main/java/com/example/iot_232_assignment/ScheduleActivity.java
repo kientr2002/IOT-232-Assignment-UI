@@ -217,7 +217,13 @@ public class ScheduleActivity extends AppCompatActivity implements MQTTHelper.Co
                 finish();
             }
         });
-
+        newScheduleButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ScheduleActivity.this, AddScheduleActivity.class);
+                startActivity(intent);
+            }
+        });
         // Initialize and start periodic weather updates
         initWeatherUpdateRunnable();
         handler.post(weatherUpdateRunnable);

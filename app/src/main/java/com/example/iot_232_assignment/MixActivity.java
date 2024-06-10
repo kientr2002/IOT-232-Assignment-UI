@@ -216,6 +216,13 @@ public class MixActivity extends AppCompatActivity implements MQTTHelper.Connect
                 finish();
             }
         });
+        newScheduleButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MixActivity.this, AddMixActivity.class);
+                startActivity(intent);
+            }
+        });
 
         // Initialize and start periodic weather updates
         initWeatherUpdateRunnable();
