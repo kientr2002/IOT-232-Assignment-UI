@@ -213,7 +213,9 @@ public class MixActivity extends AppCompatActivity implements MQTTHelper.Connect
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();
+
+                Intent intent = new Intent(MixActivity.this, NewScheduleActivity.class);
+                startActivity(intent);
             }
         });
         newScheduleButton.setOnClickListener(new View.OnClickListener() {

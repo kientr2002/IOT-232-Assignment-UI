@@ -212,7 +212,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:layout_weight="10"
-                        android:text = "Mix History"
+                        android:text = "Mix Information"
                         android:textStyle="bold"
                         android:gravity = "center"
                         android:textColor = "#ff0000"
@@ -250,7 +250,7 @@
                         android:layout_height="0dp"
                         android:layout_margin="5dp"
                         android:layout_weight="80"
-                        android:text="New Mix Setting"
+                        android:text="Mix History"
                         android:textColor="#ff0000"
 
                         />

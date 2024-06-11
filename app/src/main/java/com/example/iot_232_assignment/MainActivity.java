@@ -277,7 +277,8 @@ public class MainActivity extends AppCompatActivity implements MQTTHelper.Connec
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();
+                Intent intent = new Intent(MainActivity.this, NewScheduleActivity.class);
+                startActivity(intent);
             }
         });
 

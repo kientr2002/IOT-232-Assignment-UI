@@ -44,6 +44,13 @@
         <activity android:name=".AddMixActivity">
 
         </activity>
+
+        <activity android:name=".NewScheduleActivity">
+
+        </activity>
+        <activity android:name=".UpdateActivity">
+
+        </activity>
         <service android:name="org.eclipse.paho.android.service.MqttService"/>
     </application>
 

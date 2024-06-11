@@ -212,7 +212,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:layout_weight="10"
-                        android:text = "Watering History"
+                        android:text = "Watering Information"
                         android:textStyle="bold"
                         android:gravity = "center"
                         android:textColor = "#ff0000"
@@ -250,7 +250,7 @@
                         android:layout_height="0dp"
                         android:layout_margin="5dp"
                         android:layout_weight="80"
-                        android:text="New Schedule"
+                        android:text="Schedule History"
                         android:textColor="#ff0000"
 
                         />
