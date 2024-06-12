@@ -78,7 +78,7 @@ public class MixActivity extends AppCompatActivity implements MQTTHelper.Connect
     private Button Area1;
     private Button Area2;
     private Button Area3;
-    private Button newScheduleButton;
+    private Button newMixButton;
 
     MQTTHelper mqttHelper;
     private static final String TAG = "ScheduleActivity";
@@ -112,12 +112,12 @@ public class MixActivity extends AppCompatActivity implements MQTTHelper.Connect
         Area1 = findViewById(R.id.Area1);
         Area2 = findViewById(R.id.Area2);
         Area3 = findViewById(R.id.Area3);
-        newScheduleButton = findViewById(R.id.newSchedule);
+        newMixButton = findViewById(R.id.newMix);
 
         Area1.setBackgroundColor(Color.WHITE);
         Area2.setBackgroundColor(Color.WHITE);
         Area3.setBackgroundColor(Color.WHITE);
-        newScheduleButton.setBackgroundColor(Color.WHITE);
+        newMixButton.setBackgroundColor(Color.WHITE);
 
         homeButton  = findViewById(R.id.homeButton);
         scheduleButton = findViewById(R.id.scheduleButton);
@@ -218,7 +218,7 @@ public class MixActivity extends AppCompatActivity implements MQTTHelper.Connect
                 startActivity(intent);
             }
         });
-        newScheduleButton.setOnClickListener(new View.OnClickListener() {
+        newMixButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MixActivity.this, AddMixActivity.class);

@@ -15,8 +15,13 @@ import org.eclipse.paho.client.mqttv3.MqttException;
 import org.eclipse.paho.client.mqttv3.MqttMessage;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
+import retrofit2.Call;
+import retrofit2.http.GET;
+import retrofit2.http.Headers;
+import retrofit2.http.Path;
 
 public class MQTTHelper {
     public MqttAndroidClient mqttAndroidClient;
@@ -143,5 +148,26 @@ public class MQTTHelper {
         }
     }
 
+    public interface AdafruitIOService {
 
+        @Headers({
+                "X-AIO-Key: ", // Replace with your Adafruit IO Key
+                "Content-Type: application/json"
+        })
+        @GET("kientranvictory/feeds/data")
+        Call<List<FeedData>> getFeedData(@Path("feedKey") String feedKey);
+    }
+
+    public class FeedData {
+        private String value;
+        private String created_at;
+
+        public String getValue() {
+            return value;
+        }
+
+        public String getCreatedAt() {
+            return created_at;
+        }
+    }
 }

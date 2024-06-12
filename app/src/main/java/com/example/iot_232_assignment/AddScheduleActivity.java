@@ -153,8 +153,6 @@ public class AddScheduleActivity extends AppCompatActivity implements MQTTHelper
         startMQTT();
 
         // Initialize new input fields and button
-        solutionInput = findViewById(R.id.solution_input);
-        waterInput = findViewById(R.id.water_input);
         areaSpinner = findViewById(R.id.area_spinner);
         modeSpinner = findViewById(R.id.mode_spinner);
         okButton = findViewById(R.id.ok_button);

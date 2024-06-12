@@ -222,7 +222,7 @@ public class ScheduleActivity extends AppCompatActivity implements MQTTHelper.Co
         newScheduleButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ScheduleActivity.this, AddScheduleActivity.class);
+                Intent intent = new Intent(ScheduleActivity.this, AddMixActivity.class);
                 startActivity(intent);
             }
         });
